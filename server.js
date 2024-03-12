@@ -26,52 +26,60 @@ app.post('/api/v1/registerDetails', (req, res) => {
   const {
     nationalId,
     passportId,
+    otherNames,
+    surname,
+    nationality,
     telephone,
     email,
     businessType,
     companyName,
     tinNumber,
     regDate,
-    businessProvince,
+    businessDistrict,
     purpose,
     category,
+    productName,
     weight,
     unit,
     quantity,
     description,
     citizenship,
-    province,
+    district,
     otherpurpose,
   } = req.body;
 
   const mailOptions = {
     from: 'gashugiaderline@gmail.com',
     to: email, // g.ishimwe@irembo.com
-    subject: 'New Form Submission',
+    subject: 'Service Details',
     html: `
       <p><strong>Business Owner Details:</strong></p>
       <p>Citizenship: ${citizenship}</p>
       <p>National ID: ${nationalId}</p>
       <p>Passport ID: ${passportId}</p>
+      <p>Other Names: ${otherNames}</p>
+      <p>Surname: ${surname}</p>
+      <p>Nationality: ${nationality}</p>
       <p>Telephone: ${telephone}</p>
       <p>Email: ${email}</p>
+      <p>Location: ${district}</p>
       <hr>
       <p><strong>Business Details:</strong></p>
       <p>Business Type: ${businessType}</p>
       <p>Company Name: ${companyName}</p>
       <p>TIN Number: ${tinNumber}</p>
       <p>Registration Date: ${regDate}</p>
-      <p>Business Province: ${businessProvince}</p>
+      <p>Business Location: ${businessDistrict}</p>
       <hr>
       <p><strong>Product Information:</strong></p>
       <p>Purpose of Importation: ${purpose}</p>
+      <p>Other Purpose: ${otherpurpose}</p>
       <p>Category: ${category}</p>
+      <p>Product Name: ${productName}</p>
       <p>Weight (kg): ${weight}</p>
       <p>Unit of Measurement: ${unit}</p>
       <p>Quantity: ${quantity}</p>
       <p>Description: ${description}</p>
-      <p>Province: ${province}</p>
-      <p>Other Purpose: ${otherpurpose}</p>
     `,
   };
 
