@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const app = express();
-const port = 5000; // Choose any port you prefer
+const port = 3000; // Choose any port you prefer
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -15,14 +15,14 @@ app.use(cors());
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'gashugiaderline@gmail.com', // Your email address
-    pass: process.env.EMAIL_PASSWORD, // Your email password
+    user: 'gashugiaderline@gmail.com',
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
 
-// Endpoint to handle form data submission
+
 app.post('/api/v1/registerDetails', (req, res) => {
-  // Retrieve data from the request body
+
   const {
     nationalId,
     passportId,
@@ -83,7 +83,7 @@ app.post('/api/v1/registerDetails', (req, res) => {
     `,
   };
 
-  // Send email
+
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.error('Error sending email:', error);
@@ -95,7 +95,7 @@ app.post('/api/v1/registerDetails', (req, res) => {
   });
 });
 
-// Start the server
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
