@@ -49,8 +49,8 @@ app.post('/api/v1/registerDetails', (req, res) => {
   } = req.body;
 
   const mailOptions = {
-    from: 'gashugiaderline@gmail.com',
-    to: email, // g.ishimwe@irembo.com
+    from: 'gashugililiose@gmail.com',
+    to: email, 
     subject: 'Service Payload',
     html: `
       <p><strong>Business Owner Details:</strong></p>
